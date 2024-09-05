@@ -1,0 +1,31 @@
+import java.lang.*;
+import java.util.*;
+public class Solution{
+    public static void main(String []args){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int k=sc.nextInt();
+        int g=1;
+        int count=0;
+        while(g<k){
+           int num=sc.nextInt();
+           if(num>0){
+               count++;
+           }
+           g++;
+        }
+        int G=sc.nextInt();
+       if(G!=0){
+           count++;
+           for(int i=k;i<n;i++){
+               int M=sc.nextInt();
+               if(M==G){
+                   count++;
+               }else{
+                   break;
+               }
+           }
+       }
+       System.out.println(count);
+    }
+}
