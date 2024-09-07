@@ -1,0 +1,17 @@
+import java.util.*;
+import java.lang.*;
+public class Solution{
+    public static void main(String []args){
+        Scanner sc=new Scanner(System.in);
+        int []ar=new int[4];
+        int a=sc.nextInt();
+        ar[a]++;
+        int b=sc.nextInt();
+        ar[b]++;
+        for(int i=1;i<4;i++){
+            if(ar[i]==0){
+                System.out.println(i);
+            }
+        }
+    }
+}
