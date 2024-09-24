@@ -1,0 +1,11 @@
+import java.util.*;
+import java.lang.*;
+public class Solution{
+    public static void main(String []args){
+        Scanner sc=new Scanner(System.in);
+        String inp=sc.next();
+        String first=inp.charAt(0)+"";
+        String upper=first.toUpperCase();
+        System.out.print(upper+inp.substring(1,inp.length()));
+    }
+}
