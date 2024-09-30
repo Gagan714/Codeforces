@@ -1,0 +1,30 @@
+import java.util.*;
+import java.lang.*;
+public class Solution{
+    public static void main(String []args){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int sum=0;
+        int arr[]=new int[n];
+        for(int i=0;i<n;i++){
+            int num=sc.nextInt();
+            arr[i]=num;
+            sum+=num;
+        }
+        Arrays.sort(arr);
+        int count=0;
+        int secsum=0;
+        for(int i=n-1;i>=0;i--){
+            secsum+=arr[i];
+            count++;
+            if(secsum>sum/2){
+                break;
+            }
+        }
+        if(n==1){
+            System.out.println(1);
+        }else{
+        System.out.println(count);
+        }
+    }
+}
