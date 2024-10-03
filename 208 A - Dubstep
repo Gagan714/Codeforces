@@ -1,0 +1,21 @@
+import java.util.*;
+import java.lang.*;
+public class Solution{
+    public static void main(String []args){
+        Scanner sc=new Scanner(System.in);
+        String str=sc.next();
+        StringBuilder sb=new StringBuilder();
+        for(int i=0;i<str.length();i++){
+            if(str.charAt(i)=='W' && i+2<str.length() && str.charAt(i+1)=='U' && str.charAt(i+2)=='B'){
+               i++;
+               i++;
+               sb.append(" ");
+            }else{
+                sb.append(str.charAt(i));
+            }
+        }
+        String str2=sb.toString();
+        String nstr = str2.replaceAll("\\s+"," ").trim();
+        System.out.println(nstr);
+    }
+}
