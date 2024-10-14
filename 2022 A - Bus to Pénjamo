@@ -1,0 +1,34 @@
+import java.util.*;
+import java.lang.*;
+public class Solution{
+    public static void main(String []args){
+        Scanner sc=new Scanner(System.in);
+        int t=sc.nextInt();
+        while(t>0){
+            int n=sc.nextInt();
+            int r=sc.nextInt();
+            int output=0;
+            int remaining=0;
+            for(int i=0;i<n;i++){
+                int num=sc.nextInt();
+                if(num%2==0){
+                    output+=num;
+                    r=r-(num/2);
+                }else{
+                    r=r-((num-1)/2);
+                    output=output+(num-1);
+                    remaining++;
+                }
+            }
+            if(remaining!=0){
+                if(remaining<=r){
+                    output+=remaining;
+                }else{
+                    output+=(r*2)-remaining;
+                }
+            }
+            System.out.println(output);
+            t--;
+        }
+    }
+}
