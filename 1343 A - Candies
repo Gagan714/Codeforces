@@ -1,0 +1,21 @@
+import java.util.*;
+import java.lang.*;
+public class Solution{
+    public static void main(String []args){
+        Scanner sc=new Scanner(System.in);
+        int t=sc.nextInt();
+        while(t>0){
+            int a=sc.nextInt();
+            int p=2;
+            int num=3;
+            int output=0;
+            while(a%num!=0){
+                num+=Math.pow(2,p);
+                p++;
+            }
+            output=a/num;
+            System.out.println(output);
+            t--;
+        }
+    }
+}
