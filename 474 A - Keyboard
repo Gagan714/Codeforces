@@ -1,0 +1,21 @@
+import java.util.*;
+import java.lang.*;
+public class Solution{
+    public static void main(String []args){
+        Scanner sc=new Scanner(System.in);
+            String side=sc.nextLine();
+            String word=sc.nextLine();
+            int num=0;
+            if(side.charAt(0)=='R'){
+                num--;
+            }else{
+                num++;
+            }
+            StringBuilder sb=new StringBuilder();
+            String origin="qwertyuiopasdfghjkl;zxcvbnm,./";
+            for(int i=0;i<word.length();i++){
+                sb.append(origin.charAt(origin.indexOf(word.charAt(i)) + num));
+            }
+            System.out.println(sb.toString());
+    }
+}
