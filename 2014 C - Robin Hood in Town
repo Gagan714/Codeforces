@@ -1,0 +1,37 @@
+import java.util.*;
+import java.math.BigInteger;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+
+        while (t > 0) {
+            int n = sc.nextInt();
+            int arr[] = new int[n];
+            BigInteger sum = BigInteger.ZERO;
+
+            for (int i = 0; i < n; i++) {
+                int num = sc.nextInt();
+                sum = sum.add(BigInteger.valueOf(num));
+                arr[i] = num;
+            }
+
+            if (n <= 2) {
+                System.out.println("-1");
+            } else {
+                Arrays.sort(arr);
+                int g = arr[n / 2];
+                BigInteger gBig = BigInteger.valueOf(g);
+                BigInteger x = gBig.multiply(BigInteger.valueOf(n * 2)).subtract(sum);
+
+                if (x.compareTo(BigInteger.ZERO) < 0) {
+                    x = BigInteger.valueOf(-1);
+                }
+                System.out.println(x.add(BigInteger.ONE));
+            }
+            t--;
+        }
+        sc.close();
+    }
+}
