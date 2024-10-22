@@ -1,0 +1,23 @@
+import java.util.*;
+import java.lang.*;
+import java.math.BigInteger;
+public class Solution{
+    public static void main(String []args){
+        Scanner sc=new Scanner(System.in);
+        int t=sc.nextInt();
+        while(t>0){
+            int n=sc.nextInt();
+            BigInteger sum=BigInteger.ZERO;
+            for(int i=0;i<n-2;i++){
+                int num=sc.nextInt();
+                sum=sum.add(BigInteger.valueOf(num));
+            }
+            BigInteger n2=BigInteger.valueOf(sc.nextInt());
+            BigInteger n1=BigInteger.valueOf(sc.nextInt());
+            n2=n2.subtract(sum);
+            n1=n1.subtract(n2);
+            System.out.println(n1);
+            t--;
+        }
+    }
+}
