@@ -1,0 +1,33 @@
+import java.util.*;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        boolean output=false;
+        int n=sc.nextInt();
+        int a[]={4,7,47,44,77,74,444,777,447,474,744,774,477};
+        for(int i=0;i<a.length;i++){
+            if(n%a[i]==0){
+                System.out.println("YES");
+                output=true;
+                break;
+            }
+        }
+        if(!output){
+            while(n>0){
+                int num=n%10;
+                if(num!=7 && num!=4){
+                    output=true;
+                }
+                n=n/10;
+            }
+            if(output){
+                System.out.println("NO");
+            }else{
+                System.out.println("YES");
+            }
+        }
+    }
+}
+
+
