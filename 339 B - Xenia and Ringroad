@@ -1,0 +1,24 @@
+import java.util.*;
+import java.math.BigInteger;
+public class Solution{
+    public static void main(String []args){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int m=sc.nextInt();
+        BigInteger count=BigInteger.ZERO;
+        int prev=1;
+        for(int i=0;i<m;i++){
+            int num=sc.nextInt();
+            if(prev==num){
+                continue;
+            }else if(num<prev){
+                count=count.add(BigInteger.valueOf(n-(prev-num)));
+                prev=num;
+            }else{
+                count=count.add(BigInteger.valueOf(num-prev));
+                prev=num;
+            }
+        }
+        System.out.println(count);
+    }
+}
