@@ -1,0 +1,27 @@
+import java.util.*;
+public class Solution{
+    public static void main(String []args){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int x=sc.nextInt();
+        int count=1;
+        boolean output=false;
+        for(int i=1;i<n;i++){
+            int num=sc.nextInt();
+            if(count==x){
+                output=true;
+            }
+            if(count==i){
+                count+=num;
+            }
+        }
+        if(count==x){
+            output=true;
+        }
+        if(output){
+            System.out.println("YES");
+        }else{
+            System.out.println("NO");
+        }
+    }
+}
