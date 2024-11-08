@@ -1,0 +1,27 @@
+import java.math.BigInteger;
+import java.util.*;
+public class Solution{
+    public static void main(String []args){
+        Scanner sc=new Scanner(System.in);
+        int t=sc.nextInt();
+        while(t-- >0){
+            BigInteger x=BigInteger.valueOf(sc.nextInt());
+            BigInteger y=BigInteger.valueOf(sc.nextInt());
+            BigInteger a=BigInteger.valueOf(sc.nextInt());
+            BigInteger b=BigInteger.valueOf(sc.nextInt());
+            if(a.multiply(BigInteger.valueOf(2)).compareTo(b) <= 0){
+                BigInteger output=BigInteger.ZERO;
+                output=output.add(x.multiply(a));
+                output=output.add(y.multiply(a));
+                System.out.println(output);
+            }else{
+                BigInteger output=BigInteger.ZERO;
+                BigInteger c=x.subtract(y).abs();
+                output=output.add(c.multiply(a));
+                BigInteger d=x.min(y);
+                output=output.add(d.multiply(b));
+                System.out.println(output);
+            }
+        }
+    }
+}
