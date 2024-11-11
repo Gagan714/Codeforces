@@ -1,0 +1,21 @@
+import java.util.*;
+public class Solution{
+    public static void main(String []args){
+        Scanner sc =new Scanner(System.in);
+        int n=sc.nextInt();
+        int t=sc.nextInt();
+        int output=-1;
+        int g=n/2;
+        if(n%2!=0){
+            g++;
+        }
+        while(g<=n){
+            if(g%t==0){
+                output=g;
+                break;
+            }
+            g++;
+        }
+        System.out.println(output);
+    }
+}
