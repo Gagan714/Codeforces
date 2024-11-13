@@ -1,0 +1,18 @@
+import java.math.BigInteger;
+import java.util.*;
+public class Solution{
+    public static void main(String [] args){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        BigInteger output=BigInteger.ONE;
+        int sum=0;
+        int m=n;
+        while(n>0){
+            output=output.add(BigInteger.valueOf(n));
+            sum+=(n-1)*(m-n);
+            n--;
+        }
+        sum--;
+        System.out.println(output.add(BigInteger.valueOf(sum)));
+    }
+}
