@@ -1,0 +1,44 @@
+import java.util.*;
+public class Solution{
+    public static void main(String [] args){
+        Scanner sc=new Scanner(System.in);
+        int t=sc.nextInt();
+        while(t>0){
+            int a=sc.nextInt();
+            int b=sc.nextInt();
+            int c=sc.nextInt();
+            int d=sc.nextInt();
+            int count=0;
+            if(check(a,b,c,d)>0){
+                count++;
+            }
+            if(check(a,b,d,c)>0){
+                count++;
+            }
+            if(check(b,a,c,d)>0){
+                count++;
+            }
+            if(check(b,a,d,c)>0){
+                count++;
+            }
+            System.out.println(count);
+            t--;
+        }
+    }
+    public static int check(int a,int b,int c,int d){
+        int count=0;
+        if(a>c){
+            count++;
+        }
+        if(b>d){
+            count++;
+        }
+        if(b<d){
+            count--;
+        }
+        if(a<c){
+            count--;
+        }
+        return count;
+    }
+}
