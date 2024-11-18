@@ -1,0 +1,42 @@
+import java.util.*;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+        while (t-- > 0) {
+            int n = sc.nextInt();
+            int[] arr = new int[n];
+            for (int i = 0; i < n; i++) {
+                arr[i] = sc.nextInt();
+            }
+
+            Arrays.sort(arr);
+            int target = n - 2;
+
+            int left = 0, right = n - 1,Index = -1;
+            while (left <= right) {
+                int mid = left + (right - left) / 2;
+                if (arr[mid] <= target) {
+                    Index = mid;
+                    left = mid + 1;
+                } else {
+                    right = mid - 1;
+                }
+            }
+
+            int i = 0, j =Index;
+            while (i < j) {
+                int product = arr[i] * arr[j];
+                if (product == target) {
+                    System.out.println(arr[i] + " " +arr[j]);
+                    break;
+                } else if (product > target) {
+                    j--;
+                } else {
+                    i++;
+                }
+            }
+        }
+    }
+}
