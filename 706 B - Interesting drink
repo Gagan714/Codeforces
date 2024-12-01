@@ -1,0 +1,29 @@
+import java.util.*;
+public class Solution{
+    public static void main(String []args){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int arr[]=new int[n];
+        for(int i=0;i<n;i++){
+            arr[i]=sc.nextInt();
+        }
+        Arrays.sort(arr);
+        int q=sc.nextInt();
+        while(q-->0){
+            int target=sc.nextInt();
+            int a=0;
+            int b=n-1;
+            int output=0;
+            while(a<=b){
+                int mid=(a+b)/2;
+                if(arr[mid]<=target){
+                    a=mid+1;
+                    output=a;
+                }else{
+                    b=mid-1;
+                }
+            }
+            System.out.println(output);
+        }
+    }
+}
