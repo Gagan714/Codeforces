@@ -1,0 +1,41 @@
+import java.util.*;
+public class Solution{
+    public static void main(String []args){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int []frq=new int[5];
+        for(int i=0;i<n;i++){
+            frq[sc.nextInt()]++;
+        }
+        int count=frq[4];
+        if(frq[1]>=frq[3]){
+            count+=frq[3];
+            frq[1]-=frq[3];
+        }else{
+            count+=frq[1];
+            frq[3]=frq[3]-frq[1];
+            count+=frq[3];
+            frq[3]=0;
+            frq[1]=0;
+        }
+        if(frq[1]/2>=frq[2]){
+            frq[1]-=frq[2]*2;
+            count+=frq[2];
+            frq[2]=0;
+            if(frq[1]%4>0){
+                count++;
+            }
+            count+=frq[1]/4; 
+        }else{
+            int num=frq[1]/2;
+            frq[2]-=num;
+            count+=num;
+            frq[1]-=num*2;
+            if(frq[1]==1 || frq[2]%2!=0){
+                count++;
+            }
+            count+=frq[2]/2;
+        }
+        System.out.println(count);
+    }
+}
