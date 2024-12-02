@@ -1,0 +1,19 @@
+import java.util.*;
+public class Solution{
+    public static void main(String []args){
+        Scanner sc=new Scanner(System.in);
+        int t=sc.nextInt();
+        while(t-->0){
+            int a=sc.nextInt();
+            if(360%(180-a)==0){
+                System.out.println("YES");
+            }else{
+                System.out.println("NO");
+            }
+        }
+    }
+}
+// n=360 degree/(180 degree - a)
+// where n=number of sides (which should be positive)
+// a is angle of all the interior angles of a polygon
+// regular polygon has equal angles
