@@ -1,0 +1,31 @@
+import java.util.*;
+public class Solution{
+    public static void main(String []args){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        List<Integer> list=new ArrayList<>();
+        HashMap<Integer,Integer> map=new HashMap<>();
+        for(int i=0;i<n;i++){
+            int a=sc.nextInt();
+            int b=sc.nextInt();
+            list.add(a);
+            map.put(a,b);
+        }
+        Collections.sort(list);
+        int quality=0;
+        boolean output=false;
+        for(int i=0;i<list.size();i++){
+            int g=map.get(list.get(i));
+            if(g<quality){
+                output=true;
+                break;
+            }
+            quality=g;
+        }
+        if(output){
+            System.out.println("Happy Alex");
+        }else{
+            System.out.println("Poor Alex");
+        }
+    }
+}
