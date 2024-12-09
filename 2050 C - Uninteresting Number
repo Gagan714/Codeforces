@@ -1,0 +1,39 @@
+import java.util.*;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+        sc.nextLine();
+        while (t-- > 0) {
+            String s = sc.nextLine();
+            int sum = 0;
+            int frq2 = 0;
+            int frq3 = 0;
+
+            for (int i=0;i<s.length();i++) {
+                char c = s.charAt(i);
+                int num = c-'0';
+                sum +=num;
+                if(num == 2) frq2++;
+                if(num == 3) frq3++;
+            }
+            if(sum%9==0){
+                System.out.println("YES");
+                continue;
+            }
+            boolean output = false;
+            for(int i=0;i<=frq2;i++){
+                for(int j=0;j<=frq3;j++){
+                    int Sum=sum+(2*i)+(6*j);
+                    if(Sum%9==0){
+                        output = true;
+                        break;
+                    }
+                }
+                if(output)break;
+            }
+            System.out.println(output ? "YES" : "NO");
+        }
+    }
+}
