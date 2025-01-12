@@ -1,0 +1,43 @@
+import java.util.*;
+public class Solution{
+    public static void main(String []args){
+        Scanner sc=new Scanner(System.in);
+        int t=sc.nextInt();
+        while(t-->0){
+            int n=sc.nextInt();
+            int m=sc.nextInt();
+            int k=sc.nextInt();
+            int arr[]=new int[m];
+            Set<Integer> set=new HashSet<>();
+            for(int i=0;i<m;i++){
+                arr[i]=sc.nextInt();
+            }
+            for(int i=0;i<k;i++){
+                set.add(sc.nextInt());
+            }
+            if(n-k>=2){
+                StringBuilder sb=new StringBuilder();
+                for(int i=0;i<m;i++){
+                    sb.append("0");
+                }
+                System.out.println(sb.toString());
+            }else if(n-k==0){
+                StringBuilder sb=new StringBuilder();
+                for(int i=0;i<m;i++){
+                    sb.append("1");
+                }
+                System.out.println(sb.toString());
+            }else{
+                StringBuilder sb2=new StringBuilder();
+                for(int i=0;i<m;i++){
+                    if(set.contains(arr[i])){
+                        sb2.append("0");
+                    }else{
+                        sb2.append("1");
+                    }
+                }
+                System.out.println(sb2.toString());
+            }
+        }
+    }
+}
