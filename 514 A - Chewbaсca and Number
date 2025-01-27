@@ -1,0 +1,21 @@
+import java.util.*;
+public class Solution{
+    public static void main(String []args){
+        Scanner sc=new Scanner(System.in);
+        String str=sc.nextLine();
+        StringBuilder sb=new StringBuilder();
+        if(str.charAt(0)!='9' && Integer.parseInt(str.substring(0,1))>=5){
+            sb.append(9-Integer.parseInt(str.substring(0,1)));
+        }else{
+            sb.append(str.charAt(0));
+        }
+        for(int i=1;i<str.length();i++){
+            if(Integer.parseInt(str.substring(i,i+1))>=5){
+                sb.append(9-Integer.parseInt(str.substring(i,i+1)));
+            }else{
+                sb.append(str.charAt(i));
+            }
+        }
+        System.out.println(sb.toString());
+    }
+}
