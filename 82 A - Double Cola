@@ -1,0 +1,36 @@
+import java.util.*;
+public class Solution {
+    public static void main(String []args){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        List<String> list=new ArrayList<>();
+        list.add("Sheldon");
+        list.add("Leonard");
+        list.add("Penny");
+        list.add("Rajesh");
+        list.add("Howard");
+        if(n<=5){
+            System.out.println(list.get(n-1));
+        }else{
+        int sum=5;
+        int num=5;
+        int prev=0;
+        while(num<n){
+            prev=num;
+            sum*=2;
+            num+=sum;
+        }
+        int diff=num-prev;
+        int g=diff/5;
+        int out=0;
+        while(out<5){
+            prev+=g;
+            if(prev>=n){
+                break;
+            }
+            out++;
+        }
+        System.out.println(list.get(out));
+    }
+    }
+}
