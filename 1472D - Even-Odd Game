@@ -1,0 +1,59 @@
+import java.util.*;
+import java.math.*;
+public class Solution{
+    public static void main(String []args){
+        Scanner sc =new Scanner(System.in);
+        int t=sc.nextInt();
+        while(t-->0){
+            int n=sc.nextInt();
+            int arr[]=new int[n];
+            for(int i=0;i<n;i++){
+                arr[i]=sc.nextInt();
+            }
+            Arrays.sort(arr);
+            Stack<Integer> odd=new Stack<>();
+            Stack<Integer> even=new Stack<>();
+            for(int i=0;i<n;i++){
+                if(arr[i]%2==0){
+                    even.push(arr[i]);
+                }else{
+                    odd.push(arr[i]);
+                }
+            }
+            BigInteger alice=BigInteger.ZERO;
+            BigInteger bob=BigInteger.ZERO;
+            boolean chance=false;
+            while(!even.isEmpty() || !odd.isEmpty()){
+                int num=0;
+                int num2=0;
+                if(!even.isEmpty()){
+                    num=even.peek();
+                }
+                if(!odd.isEmpty()){
+                    num2=odd.peek();
+                }
+                if(chance){
+                    if(num>num2 && !even.isEmpty()){
+                        even.pop();
+                    }else{
+                        bob=bob.add(BigInteger.valueOf(odd.pop()));
+                    }
+                }else{
+                    if(num2>num && !odd.isEmpty()){
+                        odd.pop();
+                    }else{
+                        alice=alice.add(BigInteger.valueOf(even.pop()));
+                    }
+                }
+                chance=!chance;
+            }
+            if(alice.compareTo(bob)>=1){
+                System.out.println("Alice");
+            }else if(bob.compareTo(alice)>=1){
+                System.out.println("Bob"); 
+            }else{
+                System.out.println("Tie");
+            }
+        }
+    }
+}
