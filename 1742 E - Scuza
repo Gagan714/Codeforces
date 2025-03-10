@@ -1,0 +1,58 @@
+import java.util.*;
+import java.math.*;
+public class Solution{
+    public static void main(String []args){
+        Scanner sc=new Scanner(System.in);
+        int t=sc.nextInt();
+        while(t-->0){
+            int n=sc.nextInt();
+            int q=sc.nextInt();
+            int arr[]=new int[n];
+            int query[]=new int[q];
+            for(int i=0;i<n;i++){
+                arr[i]=sc.nextInt();
+            }
+            for(int i=0;i<q;i++){
+                query[i]=sc.nextInt();
+            }
+            BigInteger sum[]=new BigInteger[n];
+            BigInteger max[]=new BigInteger[n];
+            BigInteger summ=BigInteger.ZERO;
+            BigInteger maxi=BigInteger.ZERO;
+            for(int i=0;i<n;i++){
+                summ=summ.add(BigInteger.valueOf(arr[i]));
+                sum[i]=summ;
+                if(maxi.compareTo(BigInteger.valueOf(arr[i]))<=0){
+                    maxi=BigInteger.valueOf(arr[i]);
+                }
+                max[i]=maxi;
+            }
+            for(int i=0;i<q;i++){
+                int index=binarySearch(query[i],max);
+                if(index==-1){
+                    System.out.print("0 ");
+                    //System.out.println(index);
+                }else{
+                System.out.print(sum[index]+" ");
+                //System.out.println(index);
+                }
+            }
+            System.out.println("");
+        }
+    }
+    public static int binarySearch(int target,BigInteger []max){
+        int i=0;
+        int j=max.length-1;
+        int index=-1;
+        while(i<=j){
+            int mid=i+(j-i)/2;
+            if(max[mid].compareTo(BigInteger.valueOf(target))<=0){
+                index=mid;
+                i=mid+1;
+            }else{
+                j=mid-1;
+            }
+        }
+        return index;
+    }
+}
