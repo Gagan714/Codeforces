@@ -1,0 +1,43 @@
+import java.util.*;
+public class Solution{
+    public static void main(String []args){
+        Scanner sc=new Scanner(System.in);
+        int t=sc.nextInt();
+        while(t-->0){
+            int n=sc.nextInt();
+            int arr[]=new int[n];
+            for(int i=0;i<n;i++){
+                arr[i]=sc.nextInt();
+            }
+            int left[]=new int[n];
+            int right[]=new int[n];
+            int sum=0;
+            for(int i=0;i<n;i++){
+                sum+=arr[i];
+                left[i]=sum;
+            }
+            sum=0;
+            for(int i=n-1;i>=0;i--){
+                sum+=arr[i];
+                right[i]=sum;
+            }
+            int i=0;
+            int j=n-1;
+            int output=0;
+            while(i<j){
+                if(left[i]<right[j]){
+                    i++;
+                }
+                else if(right[j]<left[i]){
+                    j--;
+                }
+                else if(left[i]==right[j]){
+                    output=(i+1)+(n-j);
+                    i++;
+                    j--;
+                }
+            }
+            System.out.println(output);
+        }
+    }
+}
